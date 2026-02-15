@@ -228,17 +228,20 @@ body {
 }
 
 .hero-label {
-  font-size: 0.950rem;
-  font-weight: 600;
-  letter-spacing: 3.5px;
+  font-family: var(--font-display); /* mesma fonte do H1 */
+  font-size: 1.6rem;                /* igual ao H1 */
+  font-weight: 700;                 /* igual ao H1 */
+  line-height: 1.2;
+  letter-spacing: 0.5px;            /* igual ao H1 */
   text-transform: uppercase;
   color: var(--color-white);
-  margin-bottom: 1.25rem;
+
+  margin-bottom: 0.75rem;
+
   display: inline-block;
   padding: 0.6rem 1.2rem;
   border: 1px solid var(--color-white);
   border-radius: 4px;
-  font-family: var(--font-body);
 }
 
 .hero-content h1 {
@@ -250,6 +253,29 @@ body {
   margin-bottom: 0.75rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
+}
+
+/* Estilo base para ambos */
+.hero-content h1 span{
+  display: block;
+  font-family: var(--font-script);
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 400;
+  text-transform: none;
+}
+
+/* Ajuste individual */
+.hero-content h1 .hero-bem{
+  font-size: 1.8rem;
+  line-height: 1.1;
+}
+
+.hero-content h1 span:not(.hero-bem){
+  font-size: 3.5rem;
+  line-height: 0.9;
 }
 
 .hero-content h1 span {
@@ -2030,4 +2056,19 @@ body {
     font-size: 1.6rem;
   }
 
+}
+
+/* FORCE — hero-label igual ao H1 (ganha de qualquer regra anterior) */
+.hero-content .hero-label{
+  font-family: var(--font-display) !important;
+  font-size: 1.6rem !important;     /* igual ao H1 atual */
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+@media (max-width: 560px){
+  .hero-content .hero-label{
+    font-size: 1.6rem !important;
+  }
 }
