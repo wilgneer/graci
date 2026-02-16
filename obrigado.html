@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>Inscrição Confirmada</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:#0A0A0A;
+      color:#fff;
+      display:flex;
+      min-height:100vh;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      text-align:center;
+    }
+    .card{
+      width:min(520px, 100%);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(212,175,55,0.25);
+      border-radius: 18px;
+      padding: 26px;
+    }
+    h1{
+      font-size: 1.35rem;
+      margin: 0 0 10px;
+      letter-spacing: .2px;
+    }
+    p{
+      margin: 0 0 16px;
+      opacity: .86;
+      line-height: 1.5;
+    }
+    .timer{
+      font-weight: 700;
+      color: #D4AF37;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 0;
+      cursor:pointer;
+      background: #D4AF37;
+      color: #0A0A0A;
+      font-weight: 800;
+      text-decoration:none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>Inscrição confirmada ✅</h1>
+    <p>Em instantes você será redirecionado para o grupo do WhatsApp.</p>
+    <p>Redirecionando em <span class="timer" id="t">3</span>s…</p>
+
+    <a class="btn" id="go" href="#" rel="noopener">Entrar no grupo agora →</a>
+  </main>
+
+  <script>
+    // ✅ COLE AQUI O LINK DO GRUPO (convite)
+    const GROUP_LINK = "https://chat.whatsapp.com/Ds18bkPd32s6Pd22DhCgL0?mode=gi_t";
+
+    const btn = document.getElementById("go");
+    btn.href = GROUP_LINK;
+
+    let n = 3;
+    const el = document.getElementById("t");
+
+    const tick = setInterval(() => {
+      n--;
+      el.textContent = n;
+      if (n <= 0) {
+        clearInterval(tick);
+        window.location.href = GROUP_LINK;
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
