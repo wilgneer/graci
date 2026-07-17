@@ -2087,3 +2087,464 @@ body {
     font-size: 1.3rem !important;
   }
 }
+
+/* ============================================================
+   REDESIGN — MAISON ALTO VALOR
+   Componentes novos + tipografia fluida (clamp) para textos longos.
+   As regras abaixo vêm por último de propósito: para os seletores
+   compartilhados (.section-title span) elas ganham da cascata
+   anterior em qualquer largura de tela, sem precisar duplicar
+   media queries. Os elementos .hero-content/.hero-h1/.hero-date
+   antigos (específicos do evento) não são mais usados no HTML.
+   ============================================================ */
+
+/* Neutraliza o "span vira script gigante" em títulos com frases longas */
+.section-title span {
+  display: inline;
+  font-family: var(--font-display);
+  font-style: italic;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  font-size: inherit;
+  line-height: inherit;
+  margin-top: 0;
+}
+
+/* ---------- HERO (redesenhado) ---------- */
+.hero-copy {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: clamp(1.75rem, 6vw, 3rem) clamp(1.25rem, 5vw, 2.5rem);
+  background: var(--color-black);
+  text-align: center;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: clamp(0.62rem, 1.6vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  margin-bottom: 1.1rem;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--color-white);
+  font-size: clamp(1.65rem, 5.5vw, 3.1rem);
+  line-height: 1.25;
+  letter-spacing: 0.3px;
+  margin-bottom: 1.1rem;
+}
+
+.hero-title .accent {
+  font-style: italic;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-copy .hero-description {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.92rem, 2vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--color-cream);
+  opacity: 0.9;
+  max-width: 620px;
+  margin: 0 auto 1.5rem;
+}
+
+.value-triplet {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0 auto 1.75rem;
+  max-width: 480px;
+}
+
+.value-triplet li {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  color: var(--color-white);
+  letter-spacing: 0.2px;
+}
+
+.value-triplet li strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .value-triplet {
+    flex-direction: row;
+    justify-content: center;
+    max-width: none;
+  }
+
+  .value-triplet li {
+    position: relative;
+    padding: 0 1.25rem;
+  }
+
+  .value-triplet li + li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 16px;
+    background: rgba(212, 175, 55, 0.4);
+  }
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 480px;
+  margin: 0 auto 1.75rem;
+  padding: 1rem 0.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.hero-stat strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.1rem, 3.4vw, 1.6rem);
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.hero-stat span {
+  font-family: var(--font-body);
+  font-size: clamp(0.6rem, 1.6vw, 0.7rem);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(245, 241, 232, 0.75);
+}
+
+@media (min-width: 768px) {
+  .hero-simple {
+    flex-direction: row;
+    min-height: 85vh;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding: 3rem 0;
+  }
+
+  .hero-copy {
+    text-align: left;
+    max-width: 620px;
+    margin-left: 6%;
+    background: transparent;
+    padding: 2rem;
+  }
+
+  .hero-copy .hero-description {
+    margin: 0 0 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+
+  .value-triplet {
+    justify-content: flex-start;
+    margin-left: 0;
+  }
+
+  .hero-stats {
+    margin-left: 0;
+  }
+
+  .hero-eyebrow {
+    background: rgba(10, 10, 10, 0.55);
+    backdrop-filter: blur(6px);
+  }
+
+  .hero-title {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-copy {
+    margin-left: 10%;
+    max-width: 680px;
+  }
+}
+
+/* ---------- FILOSOFIA ---------- */
+.philosophy-lines {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 2rem;
+}
+
+.philosophy-lines li {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  color: var(--color-cream);
+  line-height: 1.4;
+}
+
+.philosophy-lines li strong {
+  color: var(--color-gold);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.philosophy-quote {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  line-height: 1.5;
+  color: var(--color-white);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.philosophy-quote em {
+  color: var(--color-gold);
+  font-style: italic;
+}
+
+/* ---------- MÉTODO IMPÉRIO (timeline) ---------- */
+.method-timeline {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.method-step {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.method-step:last-child {
+  padding-bottom: 0;
+}
+
+.method-step-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.method-step-number {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--gradient-gold);
+  color: var(--color-black);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+}
+
+.method-step:not(:last-child) .method-step-marker::after {
+  content: '';
+  width: 2px;
+  flex: 1;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.05));
+  margin-top: 0.5rem;
+}
+
+.method-step-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 0.35rem;
+}
+
+.method-step-body h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+  color: var(--color-white);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.method-step-body p {
+  font-size: 0.9rem;
+  color: rgba(245, 241, 232, 0.8);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+  font-weight: 300;
+  font-family: var(--font-body);
+}
+
+.method-step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.method-step-list li {
+  font-size: 0.85rem;
+  color: var(--color-cream);
+  padding-left: 1.4rem;
+  position: relative;
+  font-family: var(--font-body);
+}
+
+.method-step-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-size: 0.7rem;
+}
+
+@media (min-width: 900px) {
+  .method-timeline {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .method-step {
+    grid-template-columns: 1fr;
+    padding-bottom: 0;
+    flex: 1;
+  }
+
+  .method-step-marker {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .method-step:not(:last-child) .method-step-marker::after {
+    height: 2px;
+    width: auto;
+    flex: 1;
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.5), rgba(212, 175, 55, 0.05));
+    margin-top: 0;
+    margin-left: 0.75rem;
+  }
+}
+
+/* ---------- STATS GRID (Resultados) ---------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 0 auto 2rem;
+  max-width: 720px;
+}
+
+.stat-block {
+  text-align: center;
+  padding: 1.25rem 0.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(45, 37, 32, 0.3) 100%);
+}
+
+.stat-block strong {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-block span {
+  font-family: var(--font-body);
+  font-size: clamp(0.65rem, 1.6vw, 0.78rem);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(245, 241, 232, 0.75);
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+/* ---------- CTA BANNER (Convite Final) ---------- */
+.cta-banner {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, rgba(212, 175, 55, 0.02) 100%);
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  text-align: center;
+}
+
+.cta-banner h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.4rem, 4vw, 2.4rem);
+  color: var(--color-white);
+  max-width: 720px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.3;
+}
+
+.cta-banner h2 em {
+  font-style: italic;
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cta-banner p {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  color: rgba(245, 241, 232, 0.85);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+/* ---------- Fix: WhatsApp float visível também no mobile ---------- */
+@media (max-width: 560px) {
+  .whatsapp-float {
+    display: flex !important;
+  }
+}
