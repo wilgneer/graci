@@ -2649,3 +2649,15 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ---------- Fix: botão WhatsApp na cor oficial verde ---------- */
+.whatsapp-float {
+  background: #25D366;
+  color: #fff;
+  box-shadow: 0 4px 30px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-float:hover {
+  background: #1ebe5a;
+  box-shadow: 0 6px 40px rgba(37, 211, 102, 0.7);
+}
