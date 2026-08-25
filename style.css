@@ -2548,3 +2548,104 @@ body {
     display: flex !important;
   }
 }
+
+/* ============================================================
+   REDESIGN v2 — nova copy (Método Império, Antes/Depois, formatos)
+   ============================================================ */
+
+.method-step-scope {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: rgba(212, 175, 55, 0.75);
+  line-height: 1.5;
+}
+
+.tagline-row {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: clamp(0.72rem, 1.8vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin: 0 auto;
+}
+
+/* Antes / Depois */
+.compare-grid {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.compare-col {
+  border-radius: 12px;
+  padding: 1.75rem 1.5rem;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: linear-gradient(135deg, rgba(26, 26, 26, 0.6) 0%, rgba(45, 37, 32, 0.3) 100%);
+}
+
+.compare-col h3 {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 1.1rem;
+}
+
+.compare-col.before h3 {
+  color: rgba(245, 241, 232, 0.6);
+}
+
+.compare-col.after {
+  border-color: rgba(212, 175, 55, 0.4);
+}
+
+.compare-col.after h3 {
+  color: var(--color-gold);
+}
+
+.compare-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.compare-col li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  padding-left: 1.4rem;
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.compare-col.before li {
+  color: rgba(245, 241, 232, 0.65);
+}
+
+.compare-col.before li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: rgba(245, 241, 232, 0.4);
+}
+
+.compare-col.after li {
+  color: var(--color-cream);
+}
+
+.compare-col.after li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  font-size: 0.7rem;
+  color: var(--color-gold);
+}
+
+@media (min-width: 768px) {
+  .compare-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
