@@ -1,0 +1,322 @@
+/* ============================================================
+   PAINEL — MAISON ALTO VALOR
+   Mobile-first. Tema escuro com dourado, igual ao site.
+   ============================================================ */
+:root {
+  --bg: #0a0a0a;
+  --panel: #151515;
+  --panel-2: #1c1c1c;
+  --line: rgba(212, 175, 55, 0.22);
+  --gold: #d4af37;
+  --gold-grad: linear-gradient(135deg, #d4af37 0%, #e6c85c 50%, #b8941f 100%);
+  --text: #f5f1e8;
+  --muted: rgba(245, 241, 232, 0.65);
+  --ok: #22c55e;
+  --err: #ef4444;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+  padding-bottom: 6rem;
+}
+
+[hidden] { display: none !important; }
+
+/* ---------- topo ---------- */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: 'Inria Serif', serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 0.8rem;
+  line-height: 1.2;
+}
+
+.brand span {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.bar-actions { display: flex; gap: 0.4rem; flex-shrink: 0; }
+.bar-actions .btn { padding: 0.5rem 0.85rem; white-space: nowrap; }
+
+main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* ---------- cartões / tipografia ---------- */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card.narrow { max-width: 480px; margin: 2rem auto; }
+
+h1 {
+  font-family: 'Inria Serif', serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.muted { color: var(--muted); font-size: 0.9rem; }
+.small { font-size: 0.8rem; }
+.gold { color: var(--gold); font-weight: 600; }
+
+code {
+  background: rgba(212, 175, 55, 0.12);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  font-size: 0.85em;
+}
+
+.tips {
+  margin-top: 0.75rem;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.tips li { margin-bottom: 0.2rem; }
+
+/* ---------- botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn.primary { background: var(--gold-grad); color: #000; }
+.btn.ghost { background: transparent; color: var(--gold); border-color: var(--line); }
+.btn.full { width: 100%; margin-top: 1rem; }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:not(:disabled):hover { transform: translateY(-1px); }
+.btn:focus-visible, input:focus-visible, textarea:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- formulários ---------- */
+label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="search"],
+textarea {
+  width: 100%;
+  background: var(--panel-2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px; /* evita zoom no iOS */
+  line-height: 1.5;
+  padding: 0.7rem 0.85rem;
+}
+
+textarea { resize: vertical; min-height: 3rem; overflow: hidden; }
+
+input:focus, textarea:focus { border-color: var(--gold); outline: none; }
+
+.check {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-top: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.check input { margin-top: 0.2rem; accent-color: var(--gold); }
+
+.msg { font-size: 0.85rem; margin-top: 0.85rem; }
+.msg.error { color: var(--err); }
+
+.howto { margin-top: 1.25rem; font-size: 0.85rem; color: var(--muted); }
+.howto summary { cursor: pointer; color: var(--gold); font-weight: 600; }
+.howto ol { margin: 0.75rem 0 0.75rem 1.1rem; }
+.howto li { margin-bottom: 0.4rem; }
+
+/* ---------- editor ---------- */
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.toolbar input { flex: 1; }
+.toolbar .btn { flex-shrink: 0; }
+
+.group {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+}
+
+.group > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1rem 1.1rem;
+  min-height: 52px;
+  font-family: 'Inria Serif', serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.group > summary::-webkit-details-marker { display: none; }
+.group > summary::after {
+  content: '+';
+  color: var(--gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: transform 0.2s;
+}
+.group[open] > summary::after { transform: rotate(45deg); }
+
+.group .count {
+  margin-left: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #000;
+  background: var(--gold-grad);
+  border-radius: 999px;
+  padding: 0.1rem 0.55rem;
+}
+
+.fields { padding: 0 1.1rem 1.1rem; display: grid; gap: 1rem; }
+
+.field.is-hidden { display: none; }
+
+.field-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.field-head label { margin: 0; }
+
+.field.changed input,
+.field.changed textarea { border-color: var(--gold); }
+
+.badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.reset {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.75rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.35rem 0;
+}
+.reset:hover { color: var(--text); }
+
+.hint { margin-top: 0.3rem; font-size: 0.75rem; color: var(--muted); }
+
+.empty { text-align: center; color: var(--muted); padding: 2rem 0; }
+
+/* ---------- barra de salvar (fixa embaixo) ---------- */
+.savebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+#dirtyInfo { color: var(--muted); }
+#dirtyInfo.has-changes { color: var(--gold); font-weight: 600; }
+
+/* ---------- aviso ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 5.5rem;
+  transform: translate(-50%, 20px);
+  max-width: min(92vw, 520px);
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s, transform 0.25s;
+  z-index: 40;
+}
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast.ok { border-color: var(--ok); }
+.toast.error { border-color: var(--err); }
+
+@media (min-width: 640px) {
+  .brand { font-size: 1.05rem; letter-spacing: 1px; }
+  .card { padding: 1.75rem; }
+}

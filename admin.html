@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#000000">
+  <title>Painel | Maison Alto Valor</title>
+
+  <link rel="icon" href="img/GR (1).png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <header class="bar">
+    <div class="brand">MAISON ALTO VALOR <span>Painel de textos</span></div>
+    <div class="bar-actions" id="barActions" hidden>
+      <a class="btn ghost" href="index.html" target="_blank" rel="noopener">Ver o site</a>
+      <button class="btn ghost" type="button" id="btnLogout">Sair</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- LOGIN ==================================================== -->
+    <section id="login" class="card narrow">
+      <h1>Entrar no painel</h1>
+      <p class="muted">
+        Cole abaixo a <strong>chave de acesso</strong> (token do GitHub) que foi criada para você.
+        Sem ela não é possível alterar o site.
+      </p>
+
+      <form id="loginForm" autocomplete="off">
+        <label for="tokenInput">Chave de acesso</label>
+        <input type="password" id="tokenInput" placeholder="github_pat_..." autocomplete="off" spellcheck="false" required>
+
+        <label class="check">
+          <input type="checkbox" id="rememberToken">
+          Lembrar neste computador (use só em um computador seu)
+        </label>
+
+        <button class="btn primary full" type="submit" id="btnLogin">Entrar</button>
+        <p class="msg error" id="loginMsg" role="alert" hidden></p>
+      </form>
+
+      <details class="howto">
+        <summary>Como criar a chave de acesso (só na primeira vez)</summary>
+        <ol>
+          <li>Entre no GitHub com a conta dona do site e abra <strong>Settings → Developer settings → Personal access tokens → Fine-grained tokens</strong>.</li>
+          <li>Clique em <strong>Generate new token</strong>. Dê um nome (ex.: "Painel Maison").</li>
+          <li>Em <strong>Repository access</strong> escolha <em>Only select repositories</em> e marque só o repositório <strong>graci</strong>.</li>
+          <li>Em <strong>Permissions → Repository permissions</strong>, deixe <strong>Contents</strong> como <em>Read and write</em>.</li>
+          <li>Escolha a validade, gere o token e <strong>copie</strong> (ele só aparece uma vez). Cole aqui em cima.</li>
+        </ol>
+        <p class="muted small">A chave fica só no seu navegador e é enviada apenas ao GitHub para salvar os textos.</p>
+      </details>
+    </section>
+
+    <!-- EDITOR =================================================== -->
+    <section id="editor" hidden>
+      <div class="card help">
+        <h1>Textos do site</h1>
+        <p class="muted">
+          Altere os textos nos campos abaixo e clique em <strong>Publicar no site</strong>.
+          A página leva cerca de 1 a 2 minutos para mostrar as mudanças.
+        </p>
+        <ul class="tips">
+          <li><code>*palavra*</code> → fica <span class="gold">dourada</span> (só nos campos que têm esse destaque)</li>
+          <li><code>**palavra**</code> → <strong>negrito</strong></li>
+          <li><em>Enter</em> → nova linha</li>
+          <li>Campo vazio = volta ao texto original</li>
+        </ul>
+      </div>
+
+      <div class="toolbar">
+        <input type="search" id="search" placeholder="Buscar um texto..." aria-label="Buscar um texto">
+        <button class="btn ghost" type="button" id="btnDownload">Baixar backup</button>
+      </div>
+
+      <div id="groups"></div>
+      <p class="empty" id="noResults" hidden>Nenhum texto encontrado.</p>
+    </section>
+  </main>
+
+  <div class="savebar" id="saveBar" hidden>
+    <span id="dirtyInfo">Nenhuma alteração</span>
+    <button class="btn primary" type="button" id="btnPublish" disabled>Publicar no site</button>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>window.__CMS_NO_AUTO__ = true;</script>
+  <script src="cms.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

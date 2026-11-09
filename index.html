@@ -13,10 +13,10 @@
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Maison Alto Valor: boutique de posicionamento e implementação comercial para marcas que querem ser percebidas, desejadas e valorizadas. Solicite sua Análise Estratégica.">
+  <meta name="description" data-cms="seo.description" data-cms-attr="content" data-cms-label="Descrição que aparece no Google" data-cms-group="Google (título e descrição)" content="Maison Alto Valor: boutique de posicionamento e implementação comercial para marcas que querem ser percebidas, desejadas e valorizadas. Solicite sua Análise Estratégica.">
   <meta name="theme-color" content="#000000">
 
-  <title>Maison Alto Valor | Boutique de Posicionamento e Implementação Comercial</title>
+  <title data-cms="seo.title" data-cms-label="Título da aba / Google" data-cms-group="Google (título e descrição)">Maison Alto Valor | Boutique de Posicionamento e Implementação Comercial</title>
 
   <!-- Google Fonts - Inria Serif + Italianno + Montserrat -->
   <link rel="icon" href="img/GR (1).png" type="image/png">
@@ -25,6 +25,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Italianno&family=Montserrat:wght@300;400;500;600;700&family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <!-- Evita piscar o texto antigo enquanto o content.json carrega (o cms.js remove a classe) -->
+  <script>document.documentElement.classList.add('cms-loading');setTimeout(function(){document.documentElement.classList.remove('cms-loading')},1500);</script>
+  <style>html.cms-loading main,html.cms-loading footer{opacity:0}main,footer{transition:opacity .25s ease}</style>
 </head>
 <body>
 
@@ -58,38 +61,38 @@
         <img src="img/Gracibanner.webp" alt="Maison Alto Valor - Boutique de Posicionamento e Implementação Comercial" class="hero-bg" loading="eager" />
         <div class="hero-overlay"></div>
 
-        <div class="hero-copy">
-          <div class="hero-eyebrow">Boutique de Estratégia, Posicionamento e Implementação</div>
+        <div class="hero-copy" data-cms-group="1. Topo da página">
+          <div class="hero-eyebrow" data-cms="hero.eyebrow" data-cms-label="Frase pequena acima do título">Boutique de Estratégia, Posicionamento e Implementação</div>
 
-          <h1 class="hero-title">
+          <h1 class="hero-title" data-cms="hero.title" data-cms-accent="accent" data-cms-label="Título principal">
             O valor que você entrega merece ser <span class="accent">visto e bem pago</span>.
           </h1>
 
-          <p class="hero-description">
+          <p class="hero-description" data-cms="hero.desc" data-cms-label="Texto abaixo do título">
             <strong>E a estrutura da sua empresa precisa estar à altura disso.</strong><br><br>
             Estruturamos empresas e profissionais para aumentar a percepção de valor, fortalecer o
             posicionamento e transformar estratégia em resultado.
           </p>
 
           <div class="hero-stats">
-            <div class="hero-stat"><strong>+9</strong><span>anos</span></div>
-            <div class="hero-stat"><strong>+2.000</strong><span>clientes</span></div>
-            <div class="hero-stat"><strong>+10</strong><span>países</span></div>
+            <div class="hero-stat"><strong data-cms="hero.stat1.num" data-cms-label="Número 1">+9</strong><span data-cms="hero.stat1.label" data-cms-label="Legenda do número 1">anos</span></div>
+            <div class="hero-stat"><strong data-cms="hero.stat2.num" data-cms-label="Número 2">+2.000</strong><span data-cms="hero.stat2.label" data-cms-label="Legenda do número 2">clientes</span></div>
+            <div class="hero-stat"><strong data-cms="hero.stat3.num" data-cms-label="Número 3">+10</strong><span data-cms="hero.stat3.label" data-cms-label="Legenda do número 3">países</span></div>
           </div>
 
-          <button class="btn btn-primary" data-open-modal>
+          <button class="btn btn-primary" data-open-modal data-cms="hero.btn" data-cms-label="Texto do botão">
             Aplique para sua Análise Estratégica →
           </button>
         </div>
       </section>
 
       <!-- FILOSOFIA MAISON =================================== -->
-      <section class="section section-dark" id="filosofia">
+      <section class="section section-dark" id="filosofia" data-cms-group="2. A Filosofia Maison">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">A FILOSOFIA MAISON</p>
-            <h2 class="section-title">Toda empresa nasce de <span>uma visão</span>.</h2>
-            <p class="section-subtitle">
+            <p class="section-label" data-cms="filo.label" data-cms-label="Etiqueta da seção">A FILOSOFIA MAISON</p>
+            <h2 class="section-title" data-cms="filo.title" data-cms-accent="span" data-cms-label="Título">Toda empresa nasce de <span>uma visão</span>.</h2>
+            <p class="section-subtitle" data-cms="filo.text" data-cms-label="Texto">
               Nosso trabalho é transformar essa visão em uma estrutura capaz de sustentar crescimento, valor
               e resultado. Alinhamos posicionamento, oferta, experiência e estrutura comercial para que a
               empresa seja percebida de acordo com o valor que entrega.
@@ -99,11 +102,11 @@
       </section>
 
       <!-- MÉTODO IMPÉRIO ====================================== -->
-      <section class="section section-dark" id="metodo">
+      <section class="section section-dark" id="metodo" data-cms-group="3. Método Império">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">MÉTODO IMPÉRIO</p>
-            <h2 class="section-title">Do valor à percepção. <span>Da percepção ao resultado.</span></h2>
+            <p class="section-label" data-cms="met.label" data-cms-label="Etiqueta da seção">MÉTODO IMPÉRIO</p>
+            <h2 class="section-title" data-cms="met.title" data-cms-accent="span" data-cms-label="Título">Do valor à percepção. <span>Da percepção ao resultado.</span></h2>
           </div>
 
           <div class="method-timeline" aria-label="3 etapas do Método Império" data-reveal>
@@ -112,10 +115,10 @@
                 <div class="method-step-number">01</div>
               </div>
               <div class="method-step-body">
-                <span class="method-step-eyebrow">Essência</span>
-                <h3>Refinar</h3>
-                <p>Definimos o que torna sua empresa relevante, diferente e desejada.</p>
-                <span class="method-step-scope">Posicionamento, diferenciação, autoridade e direção estratégica.</span>
+                <span class="method-step-eyebrow" data-cms="met.s1.tag" data-cms-label="Etapa 01 — palavra pequena">Essência</span>
+                <h3 data-cms="met.s1.name" data-cms-label="Etapa 01 — nome">Refinar</h3>
+                <p data-cms="met.s1.text" data-cms-label="Etapa 01 — descrição">Definimos o que torna sua empresa relevante, diferente e desejada.</p>
+                <span class="method-step-scope" data-cms="met.s1.scope" data-cms-label="Etapa 01 — o que entra">Posicionamento, diferenciação, autoridade e direção estratégica.</span>
               </div>
             </article>
 
@@ -124,10 +127,10 @@
                 <div class="method-step-number">02</div>
               </div>
               <div class="method-step-body">
-                <span class="method-step-eyebrow">Obra</span>
-                <h3>Estruturar</h3>
-                <p>Transformamos a estratégia em uma experiência que o mercado entende e valoriza.</p>
-                <span class="method-step-scope">Produtos, serviços, ofertas, experiência do cliente e estrutura comercial.</span>
+                <span class="method-step-eyebrow" data-cms="met.s2.tag" data-cms-label="Etapa 02 — palavra pequena">Obra</span>
+                <h3 data-cms="met.s2.name" data-cms-label="Etapa 02 — nome">Estruturar</h3>
+                <p data-cms="met.s2.text" data-cms-label="Etapa 02 — descrição">Transformamos a estratégia em uma experiência que o mercado entende e valoriza.</p>
+                <span class="method-step-scope" data-cms="met.s2.scope" data-cms-label="Etapa 02 — o que entra">Produtos, serviços, ofertas, experiência do cliente e estrutura comercial.</span>
               </div>
             </article>
 
@@ -136,46 +139,46 @@
                 <div class="method-step-number">03</div>
               </div>
               <div class="method-step-body">
-                <span class="method-step-eyebrow">Legado</span>
-                <h3>Consolidar</h3>
-                <p>Criamos as bases para que o negócio cresça com mais organização, consistência e autonomia.</p>
-                <span class="method-step-scope">Vendas, gestão, processos e indicadores.</span>
+                <span class="method-step-eyebrow" data-cms="met.s3.tag" data-cms-label="Etapa 03 — palavra pequena">Legado</span>
+                <h3 data-cms="met.s3.name" data-cms-label="Etapa 03 — nome">Consolidar</h3>
+                <p data-cms="met.s3.text" data-cms-label="Etapa 03 — descrição">Criamos as bases para que o negócio cresça com mais organização, consistência e autonomia.</p>
+                <span class="method-step-scope" data-cms="met.s3.scope" data-cms-label="Etapa 03 — o que entra">Vendas, gestão, processos e indicadores.</span>
               </div>
             </article>
           </div>
 
-          <p class="tagline-row" data-reveal>Posicionamento. Estrutura. Resultado.</p>
+          <p class="tagline-row" data-reveal data-cms="met.tagline" data-cms-label="Frase final da seção">Posicionamento. Estrutura. Resultado.</p>
         </div>
       </section>
 
       <!-- ANTES / DEPOIS ======================================= -->
-      <section class="section" id="transformacao">
+      <section class="section" id="transformacao" data-cms-group="4. Antes e Depois">
         <div class="container">
           <div class="section-head" data-reveal>
-            <h2 class="section-title">Quando o valor existe, <span>mas a percepção não acompanha</span></h2>
+            <h2 class="section-title" data-cms="ad.title" data-cms-accent="span" data-cms-label="Título">Quando o valor existe, <span>mas a percepção não acompanha</span></h2>
           </div>
 
           <div class="compare-grid" data-reveal>
             <div class="compare-col before">
-              <h3>Antes</h3>
+              <h3 data-cms="ad.before.title" data-cms-label="Título da coluna da esquerda">Antes</h3>
               <ul>
-                <li>Você entrega mais do que consegue comunicar.</li>
-                <li>Sua marca não representa toda a força do seu negócio.</li>
-                <li>Sua oferta poderia ser mais clara e valorizada.</li>
-                <li>Sua operação comercial depende demais de você.</li>
-                <li>O crescimento exige esforço constante.</li>
+                <li data-cms="ad.before.1" data-cms-label="Antes — item 1">Você entrega mais do que consegue comunicar.</li>
+                <li data-cms="ad.before.2" data-cms-label="Antes — item 2">Sua marca não representa toda a força do seu negócio.</li>
+                <li data-cms="ad.before.3" data-cms-label="Antes — item 3">Sua oferta poderia ser mais clara e valorizada.</li>
+                <li data-cms="ad.before.4" data-cms-label="Antes — item 4">Sua operação comercial depende demais de você.</li>
+                <li data-cms="ad.before.5" data-cms-label="Antes — item 5">O crescimento exige esforço constante.</li>
               </ul>
             </div>
 
             <div class="compare-col after">
-              <h3>Depois</h3>
+              <h3 data-cms="ad.after.title" data-cms-label="Título da coluna da direita">Depois</h3>
               <ul>
-                <li>Um posicionamento mais claro.</li>
-                <li>Uma marca que representa seu valor.</li>
-                <li>Uma oferta estruturada para ser percebida e valorizada.</li>
-                <li>Uma experiência coerente com o nível da empresa.</li>
-                <li>Uma estrutura comercial mais eficiente.</li>
-                <li>Um negócio preparado para crescer.</li>
+                <li data-cms="ad.after.1" data-cms-label="Depois — item 1">Um posicionamento mais claro.</li>
+                <li data-cms="ad.after.2" data-cms-label="Depois — item 2">Uma marca que representa seu valor.</li>
+                <li data-cms="ad.after.3" data-cms-label="Depois — item 3">Uma oferta estruturada para ser percebida e valorizada.</li>
+                <li data-cms="ad.after.4" data-cms-label="Depois — item 4">Uma experiência coerente com o nível da empresa.</li>
+                <li data-cms="ad.after.5" data-cms-label="Depois — item 5">Uma estrutura comercial mais eficiente.</li>
+                <li data-cms="ad.after.6" data-cms-label="Depois — item 6">Um negócio preparado para crescer.</li>
               </ul>
             </div>
           </div>
@@ -183,12 +186,12 @@
       </section>
 
       <!-- COMO A MAISON TRABALHA ================================ -->
-      <section class="section section-dark" id="formatos">
+      <section class="section section-dark" id="formatos" data-cms-group="5. Como a Maison trabalha">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">COMO A MAISON TRABALHA</p>
-            <h2 class="section-title">Três <span>formatos de trabalho</span></h2>
-            <p class="section-subtitle">
+            <p class="section-label" data-cms="fmt.label" data-cms-label="Etiqueta da seção">COMO A MAISON TRABALHA</p>
+            <h2 class="section-title" data-cms="fmt.title" data-cms-accent="span" data-cms-label="Título">Três <span>formatos de trabalho</span></h2>
+            <p class="section-subtitle" data-cms="fmt.text" data-cms-label="Texto">
               O Método Império pode ser aplicado em três formatos, de acordo com o momento e a necessidade
               de cada negócio.
             </p>
@@ -196,73 +199,73 @@
 
           <div class="trust" aria-label="Formatos de trabalho" data-reveal>
             <div class="trust-card">
-              <div class="trust-title">Consultoria</div>
-              <p><strong>Nós direcionamos.</strong><br>Analisamos o negócio, identificamos prioridades e construímos a estratégia para você e sua equipe aplicarem.</p>
+              <div class="trust-title" data-cms="fmt.1.name" data-cms-label="Formato 1 — nome">Consultoria</div>
+              <p data-cms="fmt.1.text" data-cms-label="Formato 1 — texto"><strong>Nós direcionamos.</strong><br>Analisamos o negócio, identificamos prioridades e construímos a estratégia para você e sua equipe aplicarem.</p>
             </div>
             <div class="trust-card">
-              <div class="trust-title">Mentoria</div>
-              <p><strong>Nós direcionamos e acompanhamos.</strong><br>Desenvolvemos o líder e acompanhamos a execução da estratégia durante o processo.</p>
+              <div class="trust-title" data-cms="fmt.2.name" data-cms-label="Formato 2 — nome">Mentoria</div>
+              <p data-cms="fmt.2.text" data-cms-label="Formato 2 — texto"><strong>Nós direcionamos e acompanhamos.</strong><br>Desenvolvemos o líder e acompanhamos a execução da estratégia durante o processo.</p>
             </div>
             <div class="trust-card">
-              <div class="trust-title">Implementação</div>
-              <p><strong>Nós estruturamos e executamos.</strong><br>Entramos no negócio para construir e implementar posicionamento, comunicação, ofertas, experiência do cliente e estrutura comercial.</p>
+              <div class="trust-title" data-cms="fmt.3.name" data-cms-label="Formato 3 — nome">Implementação</div>
+              <p data-cms="fmt.3.text" data-cms-label="Formato 3 — texto"><strong>Nós estruturamos e executamos.</strong><br>Entramos no negócio para construir e implementar posicionamento, comunicação, ofertas, experiência do cliente e estrutura comercial.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- PARA QUEM É ============================================ -->
-      <section class="section" id="paraquem">
+      <section class="section" id="paraquem" data-cms-group="6. Para quem é a Maison">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">PARA QUEM É A MAISON</p>
-            <h2 class="section-title">Para quem busca <span>elevar a percepção do negócio</span></h2>
-            <p class="section-subtitle">
+            <p class="section-label" data-cms="pq.label" data-cms-label="Etiqueta da seção">PARA QUEM É A MAISON</p>
+            <h2 class="section-title" data-cms="pq.title" data-cms-accent="span" data-cms-label="Título">Para quem busca <span>elevar a percepção do negócio</span></h2>
+            <p class="section-subtitle" data-cms="pq.text" data-cms-label="Texto">
               Para profissionais e empresas que querem elevar a forma como seu negócio é percebido,
               valorizado e comercializado.
             </p>
           </div>
 
           <div class="topics-grid" data-reveal>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Aumentar a percepção de valor</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Fortalecer o posicionamento</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Estruturar produtos e ofertas</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Organizar a operação comercial</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Melhorar a experiência do cliente</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Reduzir a dependência do fundador</span></div>
-            <div class="topic-item"><span class="topic-icon">✦</span><span>Crescer com mais estrutura e eficiência</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.1" data-cms-label="Item 1 da lista">Aumentar a percepção de valor</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.2" data-cms-label="Item 2 da lista">Fortalecer o posicionamento</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.3" data-cms-label="Item 3 da lista">Estruturar produtos e ofertas</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.4" data-cms-label="Item 4 da lista">Organizar a operação comercial</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.5" data-cms-label="Item 5 da lista">Melhorar a experiência do cliente</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.6" data-cms-label="Item 6 da lista">Reduzir a dependência do fundador</span></div>
+            <div class="topic-item"><span class="topic-icon">✦</span><span data-cms="pq.7" data-cms-label="Item 7 da lista">Crescer com mais estrutura e eficiência</span></div>
           </div>
         </div>
       </section>
 
       <!-- O QUE VOCÊ NÃO VAI ENCONTRAR AQUI ====================== -->
-      <section class="section section-dark" id="diferencial">
+      <section class="section section-dark" id="diferencial" data-cms-group="7. O que você não vai encontrar aqui">
         <div class="container">
           <div class="section-head" data-reveal>
-            <h2 class="section-title">O que você <span>não vai encontrar aqui</span></h2>
+            <h2 class="section-title" data-cms="dif.title" data-cms-accent="span" data-cms-label="Título">O que você <span>não vai encontrar aqui</span></h2>
           </div>
 
           <ul class="philosophy-lines" data-reveal>
-            <li>Fórmulas prontas.</li>
-            <li>Estratégias copiadas.</li>
-            <li>Comunicação desconectada do negócio.</li>
-            <li>Crescimento sem estrutura.</li>
+            <li data-cms="dif.1" data-cms-label="Frase 1">Fórmulas prontas.</li>
+            <li data-cms="dif.2" data-cms-label="Frase 2">Estratégias copiadas.</li>
+            <li data-cms="dif.3" data-cms-label="Frase 3">Comunicação desconectada do negócio.</li>
+            <li data-cms="dif.4" data-cms-label="Frase 4">Crescimento sem estrutura.</li>
           </ul>
 
-          <p class="philosophy-quote" data-reveal>
+          <p class="philosophy-quote" data-reveal data-cms="dif.quote" data-cms-label="Frase de destaque">
             Cada projeto parte do negócio real, do momento da empresa e dos objetivos do fundador.
           </p>
 
-          <p class="tagline-row" data-reveal style="margin-top: 2rem;">Analisamos. Definimos. Estruturamos. Implementamos.</p>
+          <p class="tagline-row" data-reveal style="margin-top: 2rem;" data-cms="dif.tagline" data-cms-label="Frase final">Analisamos. Definimos. Estruturamos. Implementamos.</p>
         </div>
       </section>
 
       <!-- RESULTADOS =========================================== -->
-      <section class="section" id="resultados">
+      <section class="section" id="resultados" data-cms-group="8. Resultados">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">RESULTADOS</p>
-            <h2 class="section-title">Uma trajetória construída <span>ao lado de quem confia</span></h2>
+            <p class="section-label" data-cms="res.label" data-cms-label="Etiqueta da seção">RESULTADOS</p>
+            <h2 class="section-title" data-cms="res.title" data-cms-accent="span" data-cms-label="Título">Uma trajetória construída <span>ao lado de quem confia</span></h2>
           </div>
 
           <div class="gallery-wrapper" data-reveal data-autoplay="true">
@@ -297,36 +300,36 @@
           <!-- TODO Graciela: inserir cases, logos de clientes e depoimentos reais aqui -->
 
           <div class="stats-grid" data-reveal>
-            <div class="stat-block"><strong>+9</strong><span>anos de experiência</span></div>
-            <div class="stat-block"><strong>+2.000</strong><span>clientes atendidos</span></div>
-            <div class="stat-block"><strong>+10</strong><span>países</span></div>
+            <div class="stat-block"><strong data-cms="res.stat1.num" data-cms-label="Número 1">+9</strong><span data-cms="res.stat1.label" data-cms-label="Legenda do número 1">anos de experiência</span></div>
+            <div class="stat-block"><strong data-cms="res.stat2.num" data-cms-label="Número 2">+2.000</strong><span data-cms="res.stat2.label" data-cms-label="Legenda do número 2">clientes atendidos</span></div>
+            <div class="stat-block"><strong data-cms="res.stat3.num" data-cms-label="Número 3">+10</strong><span data-cms="res.stat3.label" data-cms-label="Legenda do número 3">países</span></div>
           </div>
 
-          <p class="philosophy-quote" data-reveal>
+          <p class="philosophy-quote" data-reveal data-cms="res.quote" data-cms-label="Frase abaixo dos números">
             Uma trajetória construída ao lado de profissionais e empresas em diferentes mercados.
           </p>
         </div>
       </section>
 
       <!-- CURADORIA MAISON / SOBRE ============================= -->
-      <section class="section section-about" id="sobre">
+      <section class="section section-about" id="sobre" data-cms-group="9. A Curadoria Maison (sobre a Graciela)">
         <div class="container">
           <div class="about" data-reveal>
             <div class="about-image">
               <img src="img/GRA.webp" alt="Graciela Anjos - Fundadora da Maison Alto Valor" loading="lazy" decoding="async">
               <div class="about-badge">
-                <span>Pioneira em Implementação</span>
-                <strong>de Alto Valor</strong>
+                <span data-cms="sobre.badge1" data-cms-label="Selo sobre a foto — linha 1">Pioneira em Implementação</span>
+                <strong data-cms="sobre.badge2" data-cms-label="Selo sobre a foto — linha 2">de Alto Valor</strong>
               </div>
             </div>
 
             <div class="about-content">
-              <p class="section-label">A CURADORIA MAISON</p>
-              <h2 class="section-title">GRACIELA ANJOS</h2>
-              <p>
+              <p class="section-label" data-cms="sobre.label" data-cms-label="Etiqueta da seção">A CURADORIA MAISON</p>
+              <h2 class="section-title" data-cms="sobre.name" data-cms-label="Nome">GRACIELA ANJOS</h2>
+              <p data-cms="sobre.p1" data-cms-label="Parágrafo 1">
                 Fundadora da Maison Alto Valor e criadora do Método Império.
               </p>
-              <p>
+              <p data-cms="sobre.p2" data-cms-label="Parágrafo 2">
                 Publicitária, especialista em Planejamento Estratégico e Finanças, com formação e experiência
                 em Artes e Teatro.
                 <br><br>
@@ -335,7 +338,7 @@
               </p>
 
               <div class="about-cta">
-                <button class="btn btn-primary" data-open-modal>Aplique para sua Análise Estratégica →</button>
+                <button class="btn btn-primary" data-open-modal data-cms="sobre.btn" data-cms-label="Texto do botão">Aplique para sua Análise Estratégica →</button>
               </div>
             </div>
           </div>
@@ -343,12 +346,12 @@
       </section>
 
       <!-- COMO COMEÇAMOS ========================================= -->
-      <section class="section section-dark" id="comecamos">
+      <section class="section section-dark" id="comecamos" data-cms-group="10. Como começamos">
         <div class="container">
           <div class="section-head" data-reveal>
-            <p class="section-label">COMO COMEÇAMOS</p>
-            <h2 class="section-title">Tudo começa pela <span>Análise Estratégica</span></h2>
-            <p class="section-subtitle">
+            <p class="section-label" data-cms="com.label" data-cms-label="Etiqueta da seção">COMO COMEÇAMOS</p>
+            <h2 class="section-title" data-cms="com.title" data-cms-accent="span" data-cms-label="Título">Tudo começa pela <span>Análise Estratégica</span></h2>
+            <p class="section-subtitle" data-cms="com.text" data-cms-label="Texto">
               Analisamos o negócio de forma ampla, identificamos oportunidades, pontos de fortalecimento e
               prioridades. A partir dessa análise, definimos o que precisa ser estruturado e indicamos o
               formato de trabalho mais adequado: Consultoria, Mentoria ou Implementação.
@@ -358,16 +361,16 @@
       </section>
 
       <!-- CTA FINAL ============================================== -->
-      <section class="cta-banner" data-reveal>
+      <section class="cta-banner" data-reveal data-cms-group="11. Chamada final">
         <div class="container">
-          <p class="section-label">APLIQUE PARA SUA ANÁLISE ESTRATÉGICA</p>
-          <h2>O valor já <em>existe</em>.</h2>
-          <p>
+          <p class="section-label" data-cms="cta.label" data-cms-label="Etiqueta">APLIQUE PARA SUA ANÁLISE ESTRATÉGICA</p>
+          <h2 data-cms="cta.title" data-cms-accent="em" data-cms-label="Título">O valor já <em>existe</em>.</h2>
+          <p data-cms="cta.text" data-cms-label="Texto">
             Agora, vamos construir a estrutura para que ele seja percebido, valorizado e bem pago pelo
             mercado. Descubra o que precisa ser ajustado, estruturado e implementado para levar sua empresa
             ao próximo nível.
           </p>
-          <button class="btn btn-primary" data-open-modal>Aplicar para Análise Estratégica →</button>
+          <button class="btn btn-primary" data-open-modal data-cms="cta.btn" data-cms-label="Texto do botão">Aplicar para Análise Estratégica →</button>
         </div>
       </section>
     </header>
@@ -387,12 +390,12 @@
 
   <!-- MODAL DE CAPTURA ====================================== -->
   <div class="modal-overlay" id="leadModal">
-    <div class="modal">
+    <div class="modal" data-cms-group="12. Formulário (janela que abre ao clicar no botão)">
       <button class="modal-close" id="modalClose" aria-label="Fechar formulário">&times;</button>
 
-      <p class="section-label">MAISON ALTO VALOR</p>
-      <h2>Aplique para sua Análise Estratégica</h2>
-      <p class="modal-subtitle">
+      <p class="section-label" data-cms="form.label" data-cms-label="Etiqueta no topo">MAISON ALTO VALOR</p>
+      <h2 data-cms="form.title" data-cms-label="Título">Aplique para sua Análise Estratégica</h2>
+      <p class="modal-subtitle" data-cms="form.text" data-cms-label="Texto explicativo">
         Preencha seus dados e nossa equipe entrará em contato para indicar o melhor formato de trabalho
         para o seu momento.
       </p>
@@ -400,27 +403,27 @@
       <form id="leadForm" novalidate>
         <div class="form-grid">
           <div class="form-group">
-            <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            <label for="nome" data-cms="form.nome.label" data-cms-label="Campo nome — rótulo">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required placeholder="Seu nome" data-cms="form.nome.ph" data-cms-attr="placeholder" data-cms-label="Campo nome — exemplo dentro do campo">
           </div>
 
           <div class="form-group">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" required placeholder="seu@email.com">
+            <label for="email" data-cms="form.email.label" data-cms-label="Campo e-mail — rótulo">E-mail *</label>
+            <input type="email" id="email" name="email" required placeholder="seu@email.com" data-cms="form.email.ph" data-cms-attr="placeholder" data-cms-label="Campo e-mail — exemplo dentro do campo">
           </div>
 
           <div class="form-group">
-            <label for="profissao">Marca / segmento de atuação *</label>
-            <input type="text" id="profissao" name="profissao" required placeholder="Ex.: Moda, Consultoria, Beleza, Serviços">
+            <label for="profissao" data-cms="form.prof.label" data-cms-label="Campo segmento — rótulo">Marca / segmento de atuação *</label>
+            <input type="text" id="profissao" name="profissao" required placeholder="Ex.: Moda, Consultoria, Beleza, Serviços" data-cms="form.prof.ph" data-cms-attr="placeholder" data-cms-label="Campo segmento — exemplo dentro do campo">
           </div>
 
           <div class="form-group">
-            <label for="whatsapp">WhatsApp *</label>
-            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(31) 9 9999-9999">
+            <label for="whatsapp" data-cms="form.wpp.label" data-cms-label="Campo WhatsApp — rótulo">WhatsApp *</label>
+            <input type="tel" id="whatsapp" name="whatsapp" required placeholder="(31) 9 9999-9999" data-cms="form.wpp.ph" data-cms-attr="placeholder" data-cms-label="Campo WhatsApp — exemplo dentro do campo">
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-full">
+        <button type="submit" class="btn btn-primary btn-full" data-cms="form.btn" data-cms-label="Texto do botão de enviar">
           Aplicar para Análise Estratégica →
         </button>
 
@@ -430,42 +433,43 @@
   </div>
 
   <!-- FOOTER ==================================================== -->
-  <footer class="site-footer">
+  <footer class="site-footer" data-cms-group="13. Rodapé">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <div class="footer-brand">MAISON ALTO VALOR</div>
-          <p class="footer-description">
+          <div class="footer-brand" data-cms="foot.brand" data-cms-label="Nome da marca">MAISON ALTO VALOR</div>
+          <p class="footer-description" data-cms="foot.desc" data-cms-label="Frase da marca">
             Elegância para quem compra. Eficiência para quem lidera.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Método Império</h4>
+          <h4 data-cms="foot.met.title" data-cms-label="Coluna 2 — título">Método Império</h4>
           <ul class="footer-links">
-            <li>Refinar • Essência</li>
-            <li>Estruturar • Obra</li>
-            <li>Consolidar • Legado</li>
+            <li data-cms="foot.met.1" data-cms-label="Coluna 2 — linha 1">Refinar • Essência</li>
+            <li data-cms="foot.met.2" data-cms-label="Coluna 2 — linha 2">Estruturar • Obra</li>
+            <li data-cms="foot.met.3" data-cms-label="Coluna 2 — linha 3">Consolidar • Legado</li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contato</h4>
+          <h4 data-cms="foot.ct.title" data-cms-label="Coluna 3 — título">Contato</h4>
           <ul class="footer-contact">
-            <li>Graciela Anjos • Maison Alto Valor</li>
-            <li>CNPJ: 49.845.426/0001-35</li>
-            <li>maisonaltovalor@gmail.com</li>
-            <li>Minas Gerais</li>
-            <li>@agracielaanjosg</li>
+            <li data-cms="foot.ct.1" data-cms-label="Contato — linha 1">Graciela Anjos • Maison Alto Valor</li>
+            <li data-cms="foot.ct.2" data-cms-label="Contato — linha 2">CNPJ: 49.845.426/0001-35</li>
+            <li data-cms="foot.ct.3" data-cms-label="Contato — linha 3">maisonaltovalor@gmail.com</li>
+            <li data-cms="foot.ct.4" data-cms-label="Contato — linha 4">Minas Gerais</li>
+            <li data-cms="foot.ct.5" data-cms-label="Contato — linha 5">@agracielaanjosg</li>
           </ul>
         </div>
       </div>
 
       <div class="footer-divider"></div>
-      <div class="footer-bottom">© 2025 Maison Alto Valor. Todos os direitos reservados.</div>
+      <div class="footer-bottom" data-cms="foot.copy" data-cms-label="Direitos autorais (última linha)">© 2025 Maison Alto Valor. Todos os direitos reservados.</div>
     </div>
   </footer>
 
+  <script src="cms.js" defer></script>
   <script src="script.js" defer></script>
 </body>
 </html>
