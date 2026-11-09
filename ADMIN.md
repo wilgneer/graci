@@ -64,3 +64,21 @@ node -e "const c=require('crypto');const pw='NOVA_SENHA';const s=c.randomBytes(1
 ```
 
 Atenção: a senha é uma barreira no navegador (o site é estático). Quem realmente protege o conteúdo é o token do GitHub, sem ele ninguém publica nada.
+
+## Entrar só com a senha (sem a Graci mexer com GitHub)
+
+A chave do GitHub é cifrada com a senha e guardada em `vault.json`. A Graci digita só a senha; o painel decifra a chave sozinho. Sem `vault.json`, o painel volta a pedir a chave.
+
+Configurar (uma vez, por quem administra o GitHub):
+
+1. Criar a chave fine-grained: só o repo `graci`, **Contents: Read and write**.
+2. Gerar o `vault.json`:
+
+```powershell
+$env:PAINEL_SENHA='a-senha-do-painel'; $env:GH_TOKEN='github_pat_...'; node tools/encrypt-token.js
+```
+
+3. Commitar e enviar o `vault.json`.
+
+Trocar a senha: gere novo hash no `gate.js` **e** rode o passo 2 de novo com a senha nova.
+Como o `vault.json` é público (cifrado), use uma senha forte e longa. Se suspeitar de vazamento, revogue a chave no GitHub.

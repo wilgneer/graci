@@ -424,9 +424,10 @@
   ui.btnLogout.addEventListener('click', function () {
     if (changedCount() > 0 && !confirm('Existem alterações não publicadas. Sair mesmo assim?')) return;
     clearToken();
+    try { sessionStorage.removeItem('maison-admin-unlocked'); } catch (e) { /* ok */ }
     state.token = null;
     ui.tokenInput.value = '';
-    showEditor(false);
+    location.reload();
   });
 
   window.addEventListener('beforeunload', function (e) {

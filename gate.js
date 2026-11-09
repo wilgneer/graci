@@ -41,6 +41,27 @@
     load('cms.js').then(function () { return load('admin.js'); });
   }
 
+  // Se existir vault.json, a chave do GitHub vem de lá, cifrada com a própria senha.
+  // Assim a Graci digita só a senha. Sem vault.json, o painel pede a chave (modo antigo).
+  function openVault(pw) {
+    return fetch('vault.json', { cache: 'no-cache' }).then(function (r) {
+      if (!r.ok) return null;
+      return r.json();
+    }).then(function (v) {
+      if (!v || !v.salt || !v.iv || !v.data) return null;
+      var enc = new TextEncoder();
+      return crypto.subtle.importKey('raw', enc.encode(pw), 'PBKDF2', false, ['deriveKey']).then(function (k) {
+        return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: fromHex(v.salt), iterations: v.iter || ITER, hash: 'SHA-256' },
+          k, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+      }).then(function (key) {
+        var raw = Uint8Array.from(atob(v.data), function (c) { return c.charCodeAt(0); });
+        return crypto.subtle.decrypt({ name: 'AES-GCM', iv: fromHex(v.iv) }, key, raw);
+      }).then(function (buf) {
+        try { sessionStorage.setItem('maison_admin_token', new TextDecoder().decode(buf)); } catch (e) { /* ok */ }
+      });
+    }).catch(function () { /* sem vault ou falhou: cai no pedido da chave */ });
+  }
+
   try { if (sessionStorage.getItem(KEY) === HASH) { unlock(); return; } } catch (e) { /* ok */ }
 
   form.addEventListener('submit', function (e) {
@@ -49,8 +70,9 @@
     derive(input.value).then(function (h) {
       if (h === HASH) {
         try { sessionStorage.setItem(KEY, HASH); } catch (e2) { /* ok */ }
+        var pw = input.value;
         input.value = '';
-        unlock();
+        return openVault(pw).then(unlock);
       } else {
         msg.textContent = 'Senha incorreta.';
         msg.hidden = false; btn.disabled = false; input.select();
