@@ -52,3 +52,15 @@ No `index.html`, no elemento desejado:
 - Só textos (não troca imagens, cores, links nem WhatsApp).
 - Não adiciona/remove itens de lista; edita os itens que existem.
 - O repositório e a branch estão fixos no topo do `admin.js` (`OWNER`, `REPO`, `BRANCH`).
+
+## Senha de entrada (`gate.js`)
+
+O painel abre primeiro numa tela de senha; o editor só carrega depois dela. No código fica só o hash (PBKDF2), nunca a senha.
+
+Trocar a senha: gere um novo hash e troque `SALT`/`HASH` no topo do `gate.js`:
+
+```bash
+node -e "const c=require('crypto');const pw='NOVA_SENHA';const s=c.randomBytes(16);console.log('SALT',s.toString('hex'));console.log('HASH',c.pbkdf2Sync(pw,s,250000,32,'sha256').toString('hex'))"
+```
+
+Atenção: a senha é uma barreira no navegador (o site é estático). Quem realmente protege o conteúdo é o token do GitHub, sem ele ninguém publica nada.
